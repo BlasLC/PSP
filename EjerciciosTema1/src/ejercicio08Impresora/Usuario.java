@@ -4,27 +4,25 @@ public class Usuario implements Runnable {
 	private String nombre;
 	private Impresora impresora;
 
+	public Usuario() {
+		super();
+	}
+
 	public Usuario(String nombre, Impresora impresora) {
 		this.nombre = nombre;
 		this.impresora = impresora;
 	}
 
 	public void escribir() {
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; true; i++) {
 			String texto = "Texto " + i;
 			impresora.imprimir(nombre, texto);
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		escribir();
 	}
+
 }
